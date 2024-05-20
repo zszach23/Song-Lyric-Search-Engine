@@ -35,6 +35,13 @@ public:
 
 private:
 
+    const static std::string CONFIG_FILE_ENV_VARIABLE;
+
+    const static std::string GENIUS_CLIENT_ID_KEY;
+    const static std::string GENIUS_CLIENT_SECRET_KEY;
+    const static std::string SPOTIFY_CLIENT_ID_KEY;
+    const static std::string SPOTIFY_CLIENT_SECRET_KEY;
+
     /**************************************************************************
     * @brief Get the Client ID and Client Secret from a JSON object
     * 

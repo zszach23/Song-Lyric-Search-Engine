@@ -14,12 +14,12 @@
 using namespace std;
 using json = nlohmann::json;
 
-const string CONFIG_FILE_ENV_VARIABLE = "CONFIG_FILE";
+const string SearchEngineConfig::CONFIG_FILE_ENV_VARIABLE = "CONFIG_FILE";
 
-const string GENIUS_CLIENT_ID_KEY = "GENIUS_CLIENT_ID";
-const string GENIUS_CLIENT_SECRET_KEY = "GENIUS_CLIENT_SECRET";
-const string SPOTIFY_CLIENT_ID_KEY = "SPOTIFY_CLIENT_ID";
-const string SPOTIFY_CLIENT_SECRET_KEY = "SPOTIFY_CLIENT_SECRET";
+const string SearchEngineConfig::GENIUS_CLIENT_ID_KEY = "GENIUS_CLIENT_ID";
+const string SearchEngineConfig::GENIUS_CLIENT_SECRET_KEY = "GENIUS_CLIENT_SECRET";
+const string SearchEngineConfig::SPOTIFY_CLIENT_ID_KEY = "SPOTIFY_CLIENT_ID";
+const string SearchEngineConfig::SPOTIFY_CLIENT_SECRET_KEY = "SPOTIFY_CLIENT_SECRET";
 
 // Returns the Genius API keys and secrets as a JSON object
 //-----------------------------------------//

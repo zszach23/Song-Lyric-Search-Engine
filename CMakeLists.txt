@@ -25,7 +25,7 @@ configure_file(
 # Define Dependencies
 ################################################################################
 
-# Default values for the test flag and main source file
+# Default main source file
 set(MAIN src/main.cpp CACHE STRING "Main Source File (Driver)")
 
 set(DEPENDENCIES
@@ -72,7 +72,7 @@ enable_testing()
 
 # Add test source files
 set(TEST_SOURCES
-    TestCases/testcase01.cpp
+    ${CMAKE_SOURCE_DIR}/TestCases/testcase01.cpp
 )
 
 ################################################################################
