@@ -15,6 +15,15 @@
 class SearchEngineConfig
 {
 public:
+
+    /**************************************************************************
+    * @brief Initialize the Search Engine configuration
+    * 
+    * @param None
+    * @return None
+    **************************************************************************/
+    static void initialize();
+
     /**************************************************************************
     * @brief Get the Genius API Client ID and Client Secret in a JSON format
     * 
@@ -41,6 +50,9 @@ private:
     const static std::string GENIUS_CLIENT_SECRET_KEY;
     const static std::string SPOTIFY_CLIENT_ID_KEY;
     const static std::string SPOTIFY_CLIENT_SECRET_KEY;
+
+    static nlohmann::json geniusKeys;
+    static nlohmann::json spotifyKeys;
 
     /**************************************************************************
     * @brief Get the Client ID and Client Secret from a JSON object

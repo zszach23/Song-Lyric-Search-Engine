@@ -17,6 +17,7 @@ using namespace std;
 int main()
 //--------//
 {
+    SearchEngineConfig::initialize();
     cout << "Genius API Keys: " << SearchEngineConfig::getGeniusAPIKeys().dump(2) << endl;
     cout << "Spotify API Keys: " << SearchEngineConfig::getSpotifyAPIKeys().dump(2) << endl;
 }

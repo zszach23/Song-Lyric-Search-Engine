@@ -21,12 +21,26 @@ const string SearchEngineConfig::GENIUS_CLIENT_SECRET_KEY = "GENIUS_CLIENT_SECRE
 const string SearchEngineConfig::SPOTIFY_CLIENT_ID_KEY = "SPOTIFY_CLIENT_ID";
 const string SearchEngineConfig::SPOTIFY_CLIENT_SECRET_KEY = "SPOTIFY_CLIENT_SECRET";
 
+json SearchEngineConfig::geniusKeys;
+json SearchEngineConfig::spotifyKeys;
+
+//-----------------------------------//
+void SearchEngineConfig::initialize()
+//-----------------------------------//
+{
+    SearchEngineConfig::geniusKeys = getKeys(SearchEngineConfig::GENIUS_CLIENT_ID_KEY, 
+                                             SearchEngineConfig::GENIUS_CLIENT_SECRET_KEY);
+                                             
+    SearchEngineConfig::spotifyKeys = getKeys(SearchEngineConfig::SPOTIFY_CLIENT_ID_KEY, 
+                                              SearchEngineConfig::SPOTIFY_CLIENT_SECRET_KEY);
+}
+
 // Returns the Genius API keys and secrets as a JSON object
 //-----------------------------------------//
 json SearchEngineConfig::getGeniusAPIKeys()
 //-----------------------------------------//
 {
-    return getKeys(GENIUS_CLIENT_ID_KEY, GENIUS_CLIENT_SECRET_KEY);
+    return SearchEngineConfig::geniusKeys;
 }
 
 // Returns the Spotify API keys and secrets as a JSON object
@@ -34,7 +48,7 @@ json SearchEngineConfig::getGeniusAPIKeys()
 json SearchEngineConfig::getSpotifyAPIKeys()
 //------------------------------------------//
 {
-    return getKeys(SPOTIFY_CLIENT_ID_KEY, SPOTIFY_CLIENT_SECRET_KEY);
+    return SearchEngineConfig::spotifyKeys;
 }
 
 // Returns the keys and secrets corresponding to the given id and secret keys

@@ -19,14 +19,24 @@ using json = nlohmann::json;
 
 json getConfig();
 
+class SearchEngineConfigTest : public ::testing::Test
+{
+protected:
+
+    void SetUp() override
+    {
+        SearchEngineConfig::initialize();
+    }
+
+    json config = getConfig();
+};
+
 // Test SearchEngineConfig::getSpotifyAPIKeys()
 //---------------------------------------------//
-TEST(SearchEngineConfigTest, GetSpotifyAPIKeys)
+TEST_F(SearchEngineConfigTest, GetSpotifyAPIKeys)
 //---------------------------------------------//
 {
     json spotifyKeys = SearchEngineConfig::getSpotifyAPIKeys();
-
-    json config = getConfig();
 
     EXPECT_EQ(spotifyKeys["SPOTIFY_CLIENT_ID"], config["SPOTIFY_CLIENT_ID"]);
     EXPECT_EQ(spotifyKeys["SPOTIFY_CLIENT_SECRET"], config["SPOTIFY_CLIENT_SECRET"]);
@@ -34,12 +44,10 @@ TEST(SearchEngineConfigTest, GetSpotifyAPIKeys)
 
 // Test SearchEngineConfig::getGeniusAPIKeys()
 //--------------------------------------------//
-TEST(SearchEngineConfigTest, GetGeniusAPIKeys)
+TEST_F(SearchEngineConfigTest, GetGeniusAPIKeys)
 //--------------------------------------------//
 {
     json geniusKeys = SearchEngineConfig::getGeniusAPIKeys();
-
-    json config = getConfig();
 
     EXPECT_EQ(geniusKeys["GENIUS_CLIENT_ID"], config["GENIUS_CLIENT_ID"]);
     EXPECT_EQ(geniusKeys["GENIUS_CLIENT_SECRET"], config["GENIUS_CLIENT_SECRET"]);
