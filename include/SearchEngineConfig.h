@@ -15,10 +15,42 @@
 class SearchEngineConfig
 {
 public:
+    /**************************************************************************
+    * @brief Get the Genius API Client ID and Client Secret in a JSON format
+    * 
+    * @param None
+    * @return nlohmann::json - JSON object containing the Genius API Client ID
+    *                          and Client Secret
+    **************************************************************************/
     static nlohmann::json getGeniusAPIKeys();
+
+    /**************************************************************************
+    * @brief Get the Spotify API Client ID and Client Secret in a JSON format
+    * 
+    * @param None
+    * @return nlohmann::json - JSON object containing the Spotify API Client ID
+    *                          and Client Secret
+    **************************************************************************/
     static nlohmann::json getSpotifyAPIKeys();
 
 private:
+
+    /**************************************************************************
+    * @brief Get the Client ID and Client Secret from a JSON object
+    * 
+    * @param idKey - The key for the Client ID
+    * @param secretKey - The key for the Client Secret
+    * 
+    * @return nlohmann::json - JSON object containing the Client ID and Client Secret
+    **************************************************************************/
     static nlohmann::json getKeys(const std::string& idKey, const std::string& secretKey);
+
+    /**************************************************************************
+    * @brief Create a JSON object from a JSON file
+    * 
+    * @param file - The file to create the JSON object from
+    * 
+    * @return nlohmann::json - JSON object created from the file
+    **************************************************************************/
     static nlohmann::json createJSONObjectFromFile(const std::string& file);
 };

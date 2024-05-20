@@ -9,6 +9,9 @@
 # SUMMARY: 
 #
 #   makefile used to compile the search engine program manually without CMake.
+#   
+#   DEPRECATED: This makefile is no longer used for building the project. It is
+#   only used for running quick individual test cases in different main files.
 #
 ###############################################################################
 # TO RUN:

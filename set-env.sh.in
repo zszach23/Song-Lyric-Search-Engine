@@ -1,0 +1,11 @@
+#!/bin/bash
+
+###############################################################################
+#
+# set-env.sh.in
+#
+# A template script to set environment variables defined by CMakeLists.txt
+#
+###############################################################################
+
+export CONFIG_FILE="@CONFIG_FILE@"

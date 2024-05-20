@@ -19,7 +19,10 @@ using json = nlohmann::json;
 
 json getConfig();
 
+// Test SearchEngineConfig::getSpotifyAPIKeys()
+//---------------------------------------------//
 TEST(SearchEngineConfigTest, GetSpotifyAPIKeys)
+//---------------------------------------------//
 {
     json spotifyKeys = SearchEngineConfig::getSpotifyAPIKeys();
 
@@ -29,7 +32,10 @@ TEST(SearchEngineConfigTest, GetSpotifyAPIKeys)
     EXPECT_EQ(spotifyKeys["SPOTIFY_CLIENT_SECRET"], config["SPOTIFY_CLIENT_SECRET"]);
 }
 
+// Test SearchEngineConfig::getGeniusAPIKeys()
+//--------------------------------------------//
 TEST(SearchEngineConfigTest, GetGeniusAPIKeys)
+//--------------------------------------------//
 {
     json geniusKeys = SearchEngineConfig::getGeniusAPIKeys();
 
@@ -43,6 +49,7 @@ TEST(SearchEngineConfigTest, GetGeniusAPIKeys)
 json getConfig()
 //--------------//
 {
+    // Hardcoded path to config file to ensure environment variable is not needed
     ifstream file("../config.json");
     json config;
     file >> config;

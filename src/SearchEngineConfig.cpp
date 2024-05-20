@@ -14,7 +14,7 @@
 using namespace std;
 using json = nlohmann::json;
 
-const string CONFIG_FILE = "../config.json";
+const string CONFIG_FILE_ENV_VARIABLE = "CONFIG_FILE";
 
 const string GENIUS_CLIENT_ID_KEY = "GENIUS_CLIENT_ID";
 const string GENIUS_CLIENT_SECRET_KEY = "GENIUS_CLIENT_SECRET";
@@ -43,6 +43,8 @@ json SearchEngineConfig::getSpotifyAPIKeys()
 json SearchEngineConfig::getKeys(const string& idKey, const string& secretKey)
 //----------------------------------------------------------------------------//
 {
+    const string CONFIG_FILE = std::getenv(CONFIG_FILE_ENV_VARIABLE.c_str());
+
     json keys = SearchEngineConfig::createJSONObjectFromFile(CONFIG_FILE);
 
     string id = keys[idKey];
