@@ -11,6 +11,7 @@
 
 #include "SearchEngineConfig.h"
 
+#include <curl/curl.h>
 #include <json.hpp>
 
 using namespace std;
@@ -21,7 +22,9 @@ const string GENIUS_CLIENT_SECRET_KEY = "GENIUS_CLIENT_SECRET";
 const string SPOTIFY_CLIENT_ID_KEY = "SPOTIFY_CLIENT_ID";
 const string SPOTIFY_CLIENT_SECRET_KEY = "SPOTIFY_CLIENT_SECRET";
 
+//-------------------------------------------//
 string AuthorizationHandler::getGeniusToken()
+//-------------------------------------------//
 {
     json geniusKeys = SearchEngineConfig::getGeniusAPIKeys();
 
@@ -31,7 +34,9 @@ string AuthorizationHandler::getGeniusToken()
     return getToken(geniusClientID, geniusClientSecret);
 }
 
+//--------------------------------------------//
 string AuthorizationHandler::getSpotifyToken()
+//--------------------------------------------//
 {
     json spotifyKeys = SearchEngineConfig::getSpotifyAPIKeys();
 
@@ -41,8 +46,13 @@ string AuthorizationHandler::getSpotifyToken()
     return getToken(spotifyClientID, spotifyClientSecret);
 }
 
+//---------------------------------------------------------------------------//
 string AuthorizationHandler::getToken(const string& id, const string& secret)
+//---------------------------------------------------------------------------//
 {
-    // Dummy implementation for demonstration purposes
-    return id + secret;
+    CURL *curl;
+    CURLcode res;
+    string readBuffer;
+
+    
 }

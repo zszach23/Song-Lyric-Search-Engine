@@ -45,6 +45,8 @@ Here are the steps I use to build the application
 ```
 $ cd Song-Lyric-Search-Engine  # Go to project root directory
 
+$ cmake -S . -B build  # Generate build system files
+
 $ cmake --build build  # Build app inside build/ directory
 ```
 
