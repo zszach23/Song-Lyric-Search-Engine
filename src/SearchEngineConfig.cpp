@@ -24,9 +24,9 @@ const string SearchEngineConfig::SPOTIFY_CLIENT_SECRET_KEY = "SPOTIFY_CLIENT_SEC
 json SearchEngineConfig::geniusKeys;
 json SearchEngineConfig::spotifyKeys;
 
-//-----------------------------------//
+//---------------------------------//
 void SearchEngineConfig::initialize()
-//-----------------------------------//
+//---------------------------------//
 {
     SearchEngineConfig::geniusKeys = getKeys(SearchEngineConfig::GENIUS_CLIENT_ID_KEY, 
                                              SearchEngineConfig::GENIUS_CLIENT_SECRET_KEY);
@@ -36,26 +36,26 @@ void SearchEngineConfig::initialize()
 }
 
 // Returns the Genius API keys and secrets as a JSON object
-//-----------------------------------------//
+//---------------------------------------//
 json SearchEngineConfig::getGeniusAPIKeys()
-//-----------------------------------------//
+//---------------------------------------//
 {
     return SearchEngineConfig::geniusKeys;
 }
 
 // Returns the Spotify API keys and secrets as a JSON object
-//------------------------------------------//
+//----------------------------------------//
 json SearchEngineConfig::getSpotifyAPIKeys()
-//------------------------------------------//
+//----------------------------------------//
 {
     return SearchEngineConfig::spotifyKeys;
 }
 
 // Returns the keys and secrets corresponding to the given id and secret keys
 // as a JSON object
-//----------------------------------------------------------------------------//
+//--------------------------------------------------------------------------//
 json SearchEngineConfig::getKeys(const string& idKey, const string& secretKey)
-//----------------------------------------------------------------------------//
+//--------------------------------------------------------------------------//
 {
     const string CONFIG_FILE = std::getenv(CONFIG_FILE_ENV_VARIABLE.c_str());
 
@@ -74,9 +74,9 @@ json SearchEngineConfig::getKeys(const string& idKey, const string& secretKey)
 }
 
 // Creates a JSON object from a file
-//-------------------------------------------------------------------//
+//-----------------------------------------------------------------//
 json SearchEngineConfig::createJSONObjectFromFile(const string& file)
-//-------------------------------------------------------------------//
+//-----------------------------------------------------------------//
 {
     ifstream configFile(file);
 

@@ -8,6 +8,13 @@ project(SongLyricSearchEngine)
 # Define the include directory
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
+# Define Global Compiler Options
+add_compile_options(-Wall -Wextra -Wpedantic)
+
+# Find Required Packages
+find_package(CURL REQUIRED)
+find_package(Threads REQUIRED)
+
 ################################################################################
 # Define Environment Variables
 ################################################################################
@@ -31,6 +38,8 @@ set(MAIN src/main.cpp CACHE STRING "Main Source File (Driver)")
 set(DEPENDENCIES
         # src/SearchEngine.cpp
         src/SearchEngineConfig.cpp
+        src/HttpServerHandler.cpp
+        src/GeniusAuthorizationHandler.cpp
 )
 
 # Define the base source files
@@ -81,6 +90,19 @@ set(TEST_SOURCES
 
 # Create test executable
 add_executable(runUnitTests ${TEST_SOURCES} ${DEPENDENCIES})
+
+# Ensure the correct C++ standard is used
+set_target_properties(runUnitTests PROPERTIES
+    CXX_STANDARD 11
+    CXX_STANDARD_REQUIRED YES
+)
+
+################################################################################
+# Link Libraries
+################################################################################
+
+target_link_libraries(${PROJECT_NAME} CURL::libcurl Threads::Threads)
+target_link_libraries(runUnitTests CURL::libcurl Threads::Threads)
 
 ################################################################################
 # Link GoogleTest to Test Executable
